@@ -1,4 +1,5 @@
 **2024年9月10日更新。**
+[![](https://github.com/vpn-wiki/new-pac/blob/master/vpn-wiki/clever-vpn.png)](https://www.clever-vpn.net)
 
 ***
 
@@ -265,7 +266,7 @@ chmod +x tcp.sh
 
 【v2ray客户端下载及使用方法】
 
-**客户端使用教程：[v2ray各平台图文使用教程](https://github.com/Alvin9999/new-pac/wiki/v2ray%E5%90%84%E5%B9%B3%E5%8F%B0%E5%9B%BE%E6%96%87%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B)**
+**客户端使用教程：[v2ray各平台图文使用教程](https://github.com/vpn-wiki/new-pac/wiki/v2ray%E5%90%84%E5%B9%B3%E5%8F%B0%E5%9B%BE%E6%96%87%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B)**
 
 **软件代理设置**：
 
@@ -303,7 +304,7 @@ bash <(curl -Ls https://gitlab.com/rwkgyg/sing-box-yg/raw/main/sb.sh)
 ```
 脚本快捷管理命令：sb
 
-[图文教程](https://github.com/Alvin9999/new-pac/wiki/%E4%B8%80%E9%94%AE%E6%90%AD%E5%BB%BA%E5%A4%9A%E4%B8%AA%E5%8D%8F%E8%AE%AE%E8%8A%82%E7%82%B9%E6%95%99%E7%A8%8B)
+[图文教程](https://github.com/vpn-wiki/new-pac/wiki/%E4%B8%80%E9%94%AE%E6%90%AD%E5%BB%BA%E5%A4%9A%E4%B8%AA%E5%8D%8F%E8%AE%AE%E8%8A%82%E7%82%B9%E6%95%99%E7%A8%8B)
 
 无需域名。按照提示操作安装，全程回车即可。搭建好后默认有4个节点，1个vless-reality-vision节点，1个vmess-ws节点，1个Hysteria-2节点，1个Tuic-v5节点。
 

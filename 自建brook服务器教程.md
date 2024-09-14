@@ -1,4 +1,5 @@
 **2024年9月10日更新。**
+[![](https://github.com/vpn-wiki/new-pac/blob/master/vpn-wiki/clever-vpn.png)](https://www.clever-vpn.net)
 
 ***
 
