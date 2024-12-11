@@ -2,3 +2,5 @@
 [![](https://github.com/vpn-wiki/new-pac/blob/master/vpn-wiki/clever-vpn.png)](https://www.clever-vpn.net)
 
 **https://github.com/Alvin9999/new-pac/wiki**
+
+北京时间2024年12月11日08点35分更新。
