@@ -1,4 +1,4 @@
-**2024年9月10日更新。**
+**2025年2月10日更新。**
 [![](https://github.com/vpn-wiki/new-pac/blob/master/vpn-wiki/clever-vpn.png)](https://www.clever-vpn.net)
 
 ***
@@ -147,9 +147,9 @@ xshell5:
 
 **如果搭建SSR账号，请使用脚本一，目前推荐的SSR参数设置为以下，有利于突破网络封锁，参数如下**：
 
-1、加密方式：none  协议：origin 混淆：tls1.2_ticket_auth
+1、加密方式：aes-256-cfb 协议：origin 混淆：tls1.2_ticket_auth
 
-2、加密方式：none   协议：auth_chain_a 混淆：tls1.2_ticket_auth 
+2、加密方式：chacha20-ietf 协议：auth_chain_a 混淆：plain
 
 **如果搭建SS账号，请使用脚本二，加密方式推荐aes-256-gcm**
 
@@ -242,6 +242,26 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBack
 ![](https://cdn.jsdelivr.net/gh/Alvin9999/PAC/ss/22.png)
 
 ![](https://cdn.jsdelivr.net/gh/Alvin9999/PAC/ss/23.png)
+
+**注意**：如果想使用**chacha20**或者**chacha20-ietf**加密方式，服务器需要安装libsodium，脚本中的数字4无法正常安装的话，使用以下命令：
+
+在 Ubuntu 或 Debian 系统上，执行以下命令直接安装 libsodium：
+
+```bash
+apt update
+
+apt install libsodium-dev -y
+```
+
+在CentOS系统上，执行以下命令直接安装 libsodium：
+
+```bash
+yum install epel-release
+
+yum install libsodium-devel -y
+```
+
+安装完libsodium后，加密方式就可以选择chacha20或者chacha20-ietf。
 
 **脚本演示结束。**
 
