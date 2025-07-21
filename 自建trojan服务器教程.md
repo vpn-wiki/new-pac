@@ -1,4 +1,4 @@
-**2024年9月10日更新。**
+**2025年7月11日更新。**
 [![](https://github.com/vpn-wiki/new-pac/blob/master/vpn-wiki/clever-vpn.png)](https://www.clever-vpn.net)
 
 ***
@@ -116,7 +116,7 @@ vultr实际上是折算成小时来计费的，比如服务器是5美元1个月�
 
 xshell5:
 
-[国外云盘1下载](https://d2.freessr2.xyz/Xshell_setup_wm.exe)
+[国外云盘1下载](https://download.574981.xyz/Xshell_setup_wm.exe)
 [国外云盘2下载](https://d.dtku35.xyz/Xshell_setup_wm.exe)
 
 **注意：如果使用xshell5的过程中提示“找不到匹配的host key算法”，可以下载更高的版本来解决，比如xshell7，可在xshell中文官方网站下载**：https://www.xshell.com/zh/free-for-home-school
