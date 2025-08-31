@@ -1,4 +1,4 @@
-**2025年7月11日更新。**
+**2025年8月25日更新。**
 [![](https://github.com/vpn-wiki/new-pac/blob/master/vpn-wiki/clever-vpn.png)](https://www.clever-vpn.net)
 
 ***
@@ -48,29 +48,33 @@ vultr实际上是折算成小时来计费的，比如服务器是5美元1个月�
 
 在下拉菜单中，点击Deploy New Server
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/v3.jpg)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025vultr-1.png)
 
-服务器类型选择Cloud Compute-Shared CPU
+服务器类型选择Shared CPU，选择服务器位置。不同的服务器位置速度会有所不同。
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/v4.jpg)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025vultr-2.png)
 
-选择服务器位置。不同的服务器位置速度会有所不同，有的服务器的最低价格会不同，一般纽约等位置的价格最低，有3.5美元/月的，可根据自己的需求来选择。推荐洛杉矶服务器，延迟较低且比较稳定。
+选择服务器套餐。有的服务器的最低价格会不同，一般纽约等位置的价格最低，有3.5美元/月的，可根据自己的需求来选择。推荐洛杉矶服务器，延迟较低且比较稳定。注意：2.5美元/月的套餐只提供ipv6，没有ipv4。
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/ssr0910-01.png)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025vultr-3.png)
 
-点击图中的系统名字，会弹出具体系统版本，推荐Debian 11或者Ubuntu 20.04 
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025vultr-4.png)
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/v6.jpg)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025vultr-5.png)
 
-选择服务器套餐。根据自己的需求来选择，如果服务器位置定了，套餐不影响速度，影响流量和配置，一般用的人数少，选择低配置就够了。便宜的套餐，点击Regular Cloud Compute，选择第一个套餐，提示升级选择No Thanks。
+关闭自动备份Auto Backups，这个是收费的，每月1美元。点击它就可以省1美元，在右侧的I understand the risk前面选择勾，然后点击Disable Auto Backups即可关闭自动备份。接下来进行下一步，点击“Configure”
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/v7.jpg)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025vultr-6.png)
 
-关闭自动备份Auto Backups，这个是收费的。点击它，在右侧的I understand the risk前面选择勾，然后点击Disable Auto Backups即可关闭自动备份。
+点击图中的系统名字，会弹出具体系统版本，推荐Debian 11
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/v8.jpg)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025vultr-7.png)
 
-最后点击“Deploy Now”开始部署，等6~10分钟就差不多了。
+选择ipv4，不要选择ipv6，当同时选择ipv4和ipv6时，ipv4会被禁用。
+
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025vultr-8.png)
+
+最后点击“Deploy”开始部署，等3～5分钟就差不多了。
 
 **完成购买后，找到系统的密码记下来，部署服务器时需要用到。vps系统的密码获取方法如下图：**
 
@@ -301,7 +305,11 @@ systemctl disable firewalld.service
 
 **第三步：一键加速VPS服务器**
 
-五合一的TCP网络加速脚本，包括了BBR原版、BBR魔改版、暴力BBR魔改版、BBR plus（首选）、Lotsever(锐速)安装脚本。可用于KVMXen架构，不兼容OpenVZ（OVZ）。支持Centos 6+ / Debian 7+ / Ubuntu 14+，BBR魔改版不支持Debian 8。
+五合一的TCP网络加速脚本，包括了BBR原版（首选）、BBR Plus、BBR魔改版、暴力BBR魔改版、LotServer(锐速)安装脚本。可用于KVMXen架构，不兼容OpenVZ（OVZ）。支持Centos 6+ / Debian 7+ / Ubuntu 14+，BBR魔改版不支持Debian 8。
+
+👉 强烈推荐使用 BBR 原版加速：最稳定——谷歌官方维护，速度不错；最省心——Debian 9+ / Ubuntu 18.04+  系统无需更换内核；最安全——避免因魔改内核导致 VPS 无法启动。
+
+⚠️ 其他版本（BBR Plus / 魔改 / 暴力魔改 / 锐速）需要更换或指定内核，风险较高，不推荐新手使用。
 
 ***
 
@@ -318,7 +326,14 @@ chmod +x tcp.sh
 
 ![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/vultr/newbbr1.jpg)
 
-操作方法：先安装内核，重启vps让内核生效，再启动对应的加速即可。数字1的BBR/BBR魔改内核对应数字4、5、6的BBR加速、BBR魔改加速和暴力BBR魔改版加速。数字2的BBRplus内核对应数字7的BBRplus加速。数字3的锐速加速内核对应数字8的锐速加速。（如果服务器系统是Debian或Ubuntu系统，可不用安装内核，直接输入数字4启动bbr原版加速。）
+如果服务器系统是 **Debian** 或 **Ubuntu**，可不用安装内核，直接输入 **数字 4** 启动 **BBR 原版加速**。  
+
+如果服务器系统是 **CentOS**，先输入 **数字 1** 安装内核，然后 **重启服务器** 后，输入 **数字 4** 启动 **BBR 原版加速**。  
+
+**BBR 原版**由谷歌官方开发，稳定且速度表现优秀，推荐使用。  
+
+⚠️ **注意**：对于其他第三方内核，可能存在与系统不兼容的情况，安装后有概率导致 **VPS 无法正常启动**，需谨慎，因此 **不推荐**。  
+如果确实想尝试，可以考虑 **BBR Plus**。
 
 以安装暴力BBR魔改版加速为例，我们先安装对应的内核，输入数字1
 
@@ -412,7 +427,7 @@ vultr和其他的国外商家一样，都是使用工单的形式与客服联系
 
 ***
 
-**vps系统较高，不支持ssr一键脚本怎么办？解决方法：使用docker来安装ssr装**
+**vps系统较高，不支持ssr一键脚本怎么办？解决方法：使用docker来安装ssr**
 
 **使用curl工具下载docker脚本自动安装**
 
