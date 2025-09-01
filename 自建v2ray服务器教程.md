@@ -1,4 +1,4 @@
-**2025年8月25日更新。**
+**2025年8月31日更新。**
 [![](https://github.com/vpn-wiki/new-pac/blob/master/vpn-wiki/clever-vpn.png)](https://www.clever-vpn.net)
 
 ***
@@ -153,54 +153,60 @@ xshell5:
 
 连接成功后，会出现如上图所示，之后就可以复制粘贴代码部署了。
 
-**Ubuntu 16+ / Debian 8+ 系统 v2ray一键部署管理脚本**（ps：如果这个脚本不好用，教程末尾还有一键搭建多个协议节点脚本）
+**Ubuntu 16+ / Debian 8+ 系统 一键部署sing-box管理脚本**
 
 安装命令：
 
 ```bash
-source <(curl -sL https://multi.netlify.app/v2ray.sh) --zh
+bash <(wget -qO- https://raw.githubusercontent.com/fscarmen/sing-box/main/sing-box.sh)
 ```
 
-升级命令(保留配置文件更新)：
+> 如果输入安装命令后提示wget: command not found，那是因为服务器系统没有自带wget命令，安装一下wget。
 
-```bash
-source <(curl -sL https://multi.netlify.app/v2ray.sh) -k
-```
+> CentOS系统安装wget命令：yum install -y wget
 
-卸载命令：
+> Debian/Ubuntu系统安装wget命令：apt-get install -y wget
 
-```bash
-source <(curl -sL https://multi.netlify.app/v2ray.sh) --remove
-```
-
-> 如果输入安装命令后提示curl: command not found，那是因为服务器系统没有自带curl命令，安装一下curl。
-
-> CentOS系统安装curl命令：yum install -y curl   
-
-> Debian/Ubuntu系统安装curl命令：apt-get install -y curl
-
-> 安装完成后，输入v2ray可进入管理页面。脚本来自[Jrohy/multi-v2ray](https://github.com/Jrohy/multi-v2ray)。
+> 安装完成后，输入 sb 可进入管理页面。
 
 
 ***
 
 **脚本演示**
 
-复制上面安装命令代码到VPS服务器里，复制代码用鼠标右键的复制，然后在vps里面右键粘贴进去，因为ctrl+c和ctrl+v无效。接着输入数字1来安装。安装完成后，如果想修改、查看配置等，可以输入v2ray进行管理页面，不用重复安装脚本。
+复制上面安装命令代码到VPS服务器里，复制代码用鼠标右键的复制，然后在vps里面右键粘贴进去，因为ctrl+c和ctrl+v无效。
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/PAC/v2ray/v2ray-2-1.PNG)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray1.png)
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/PAC/v2ray/v2ray-2-2.PNG)
+输入2，选择中文
 
-安装速度很快，安装结束后默认有个kcp协议帐号，如果不想用kcp协议，可以输入v2ray管理页面来进行传输方式的更改。（推荐websocket协议）
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray2.png)
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/PAC/v2ray/v2ray-2-3.PNG)
+输入1，安装
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/PAC/v2ray/v2ray-2-4.PNG)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray3.png)
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/v2ray-cs.png)
+输入a，选择全部类型
 
-安装成功后会出现“multi-v2ray install success!”字样。
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray4-2.png)
+
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray5.png)
+
+全部回车
+
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray6.png)
+
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray7.png)
+
+出现上面字样表示安装成功
+
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray8.png)
+
+安装完成后，节点会有多种类型的输出形式，适合多个不同的客户端导入，从上往下包括v2rayN、ShadowRocket、 Clash Verge、NekoBox、Sing-box。如果是用v2ray客户端，鼠标一直往上面翻，找到v2rayN下面的所有节点，有鼠标右键全部复制下来，一键全部倒入到软件中。
+
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray9.png)
+
+目前有9个不同类型的节点，有6～7个节点可以用。
 
 ***
 
@@ -243,7 +249,7 @@ chmod +x tcp.sh
 
 安装完成后，脚本管理命令为：./tcp.sh
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/vultr/newbbr1.jpg)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-bbr-1.png)
 
 如果服务器系统是 **Debian** 或 **Ubuntu**，可不用安装内核，直接输入 **数字 4** 启动 **BBR 原版加速**。  
 
@@ -251,27 +257,19 @@ chmod +x tcp.sh
 
 **BBR 原版**由谷歌官方开发，稳定且速度表现优秀，推荐使用。  
 
-⚠️ **注意**：对于其他第三方内核，可能存在与系统不兼容的情况，安装后有概率导致 **VPS 无法正常启动**，需谨慎，因此 **不推荐**。  
-如果确实想尝试，可以考虑 **BBR Plus**。
+⚠️ **注意**：对于其他第三方内核，可能存在与系统不兼容的情况，安装后有概率导致 **VPS 无法正常启动**，需谨慎，因此 **不推荐**。 如果VPS 无法正常启动需要重装系统或者开新服务器。
 
-以安装暴力BBR魔改版加速为例，我们先安装对应的内核，输入数字1
+以安装**BBR 原版加速**为例，输入加速脚本，选择数字4
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/vultr/newbbr2.jpg)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-bbr-1.png)
 
-内核安装完成后，输入y进行重启，重启才能让内核生效
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-bbr-2.png)
 
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/vultr/newbbr3.jpg)
-
-重启完成后，输入数字6来启动暴力BBR魔改版加速
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/vultr/newbbr4.jpg)
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/vultr/newbbr5.jpg)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-bbr-3.png)
 
 输入./tcp.sh查看最终是否启动成功。
 
-如果想换一个加速，输入数字9进行卸载加速，然后进行同样的操作，安装内核再安装对应内核的加速即可。
+如果想换一个加速，输入数字9进行卸载加速，然后进行操作。
 
 **注意：如果在安装内核环节出现这样一张图，注意选择NO**
 
@@ -291,38 +289,5 @@ windows系统打开v2rayN软件，在软件的底部，选择“自动配置系�
 
 ***
 
-**常见问题参考解决方法**：
-
-**1、账号无法使用，可能原因：vps防火墙端口没有放开或者本地电脑防火墙、杀毒软件阻挡代理软件。**
-
-关闭vps防火墙即可开放所有端口，本地电脑防火墙和杀毒软件手动关闭即可。
-
-查看防火墙状态命令：firewall-cmd --state  
-
-停止firewall命令：systemctl stop firewalld.service
-
-禁止firewall开机启动命令：systemctl disable firewalld.service
-
-
-**2、搭建的账号之前能用，突然不能用了，怎么解决？**
-
-如果ip不能ping通，xshell不能直接连接vps服务器，说明ip被墙了，需要开新服务器换ip。
-
-如果ip能ping，xshell能直接连接vps服务器，说明ip没有被墙，多半是端口被封了，优先换端口。
-
-如果ip和端口都没问题，可以尝试来更换传输协议，比如Websocket、TCP、mKCP等，测试哪种协议最适合自己的网络环境。
-
-**3、一键搭建多个协议节点脚本，无需域名，小白专用**
-
-```bash
-bash <(curl -Ls https://gitlab.com/rwkgyg/sing-box-yg/raw/main/sb.sh)
-```
-脚本快捷管理命令：sb
-
-[图文教程](https://github.com/vpn-wiki/new-pac/wiki/%E4%B8%80%E9%94%AE%E6%90%AD%E5%BB%BA%E5%A4%9A%E4%B8%AA%E5%8D%8F%E8%AE%AE%E8%8A%82%E7%82%B9%E6%95%99%E7%A8%8B)
-
-无需域名。按照提示操作安装，全程回车即可。搭建好后默认有4个节点，1个vless-reality-vision节点，1个vmess-ws节点，1个Hysteria-2节点，1个Tuic-v5节点。
-
-***
 
 有问题可以发邮件至海外邮箱rebeccalane27@gmail.com
