@@ -1,4 +1,4 @@
-**2025年8月31日更新。**
+**2025年9月10日更新。**
 [![](https://github.com/vpn-wiki/new-pac/blob/master/vpn-wiki/clever-vpn.png)](https://www.clever-vpn.net)
 
 ***
@@ -45,8 +45,6 @@ vultr实际上是折算成小时来计费的，比如服务器是5美元1个月�
 
 **vultr改版了，最新开通服务器步骤如图**：
 
-**vultr改版了，最新开通服务器步骤如图**：
-
 ![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/v1.jpg)
 
 点击网页右上角的Deploy图标
@@ -73,7 +71,7 @@ vultr实际上是折算成小时来计费的，比如服务器是5美元1个月�
 
 ![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025vultr-6.png)
 
-点击图中的系统名字，会弹出具体系统版本，推荐Debian 11
+点击图中的系统名字，会弹出具体系统版本，推荐Debian
 
 ![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025vultr-7.png)
 
@@ -153,60 +151,39 @@ xshell5:
 
 连接成功后，会出现如上图所示，之后就可以复制粘贴代码部署了。
 
-**Ubuntu 16+ / Debian 8+ 系统 一键部署sing-box管理脚本**
-
-安装命令：
+一键安装sing-box脚本命令：
 
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/fscarmen/sing-box/main/sing-box.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/sb.sh)
 ```
-
-> 如果输入安装命令后提示wget: command not found，那是因为服务器系统没有自带wget命令，安装一下wget。
-
-> CentOS系统安装wget命令：yum install -y wget
-
-> Debian/Ubuntu系统安装wget命令：apt-get install -y wget
-
-> 安装完成后，输入 sb 可进入管理页面。
-
+> 安装完成后，输入sb可进入管理页面。
 
 ***
 
 **脚本演示**
 
-复制上面安装命令代码到VPS服务器里，复制代码用鼠标右键的复制，然后在vps里面右键粘贴进去，因为ctrl+c和ctrl+v无效。
+复制上面安装命令代码到VPS服务器里，复制代码用鼠标右键的复制，然后在vps里面右键粘贴进去，因为ctrl+c和ctrl+v无效。接着输入数字1来安装。安装完成后，如果想修改、查看配置等，可以输入sb进行管理页面，不用重复安装脚本。
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray1.png)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/yg1.jpg)
 
-输入2，选择中文
+输入数字1进行安装。
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray2.png)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/yg2.jpg)
 
-输入1，安装
+之后的设置全程回车即可。
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray3.png)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/yg13.jpg)
 
-输入a，选择全部类型
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/yg14.jpg)
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray4-2.png)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/yg15.jpg)
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray5.png)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/yg16.jpg)
 
-全部回车
+搭建好后默认有4个节点，1个vless节点，1个vmess节点，1个hysteria2节点，1个tuic节点。
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray6.png)
+鼠标往上翻，可以看到节点的一键导入链接和二维码。支持v2rayn、v2rayng、nekobox、小火箭shadowrocket客户端。
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray7.png)
-
-出现上面字样表示安装成功
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray8.png)
-
-安装完成后，节点会有多种类型的输出形式，适合多个不同的客户端导入，从上往下包括v2rayN、ShadowRocket、 Clash Verge、NekoBox、Sing-box。如果是用v2ray客户端，鼠标一直往上面翻，找到v2rayN下面的所有节点，有鼠标右键全部复制下来，一键全部倒入到软件中。
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-v2ray9.png)
-
-目前有9个不同类型的节点，有6～7个节点可以用。
 
 ***
 
