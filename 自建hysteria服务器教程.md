@@ -1,17 +1,16 @@
-**2025年8月22日更新。**
+**2025年9月17日更新。**
 [![](https://github.com/vpn-wiki/new-pac/blob/master/vpn-wiki/clever-vpn.png)](https://www.clever-vpn.net)
 
 ***
 
-Hysteria 是一个功能丰富的，专为恶劣网络环境进行优化的网络工具（双边加速），比如卫星网络、拥挤的公共 Wi-Fi、在中国连接国外服务器等。 基于修改版的 QUIC 协议。由go编写的非常优秀的“轻量”代理程序，它很好的解决了在搭建科学上网服务器时的痛点——线路一般、高峰时期慢。虽然是走的udp但是提供obfs，暂时不会被运营商针对性的QoS(不开obfs也不会被QoS)。下图为原开发项目提供的不同协议的速度对比：
-
-![](https://cdn.jsdelivr.net/gh/HyNetwork/hysteria/docs/bench/bench.png)
-
-**自建hysteria教程很简单，整个教程分三步**：
+**整个教程分三步**：
 
 第一步：购买VPS服务器
 
-第二步：一键部署VPS服务器
+第二步：一键搭建服务器
+
+第三步：一键加速VPS服务器 （五合一的TCP网络加速脚本）
+
 
 ***
 
@@ -39,6 +38,7 @@ vultr实际上是折算成小时来计费的，比如服务器是5美元1个月�
 
 依次点击Account——Make a payment——Alipay(支付宝)
 
+**vultr改版了，最新开通服务器步骤如图**：
 
 **vultr改版了，最新开通服务器步骤如图**：
 
@@ -94,6 +94,7 @@ vultr实际上是折算成小时来计费的，比如服务器是5美元1个月�
 
 服务器ip和系统密码可以看到并能复制。
 
+
 **删掉服务器步骤如下图**：
 
 删除服务器时，先开新的服务器后再删除旧服务器，这样可以保证新服务器的ip与旧ip不同。
@@ -102,10 +103,10 @@ vultr实际上是折算成小时来计费的，比如服务器是5美元1个月�
 
 ![](https://cdn.jsdelivr.net/gh/Alvin9999/PAC/ss/de5.png)
 
-
 ***
 
-**第二步：部署VPS服务器**
+
+**第二步：一键搭建VPS服务器**
 
 购买服务器后，需要部署一下。因为你买的是虚拟东西，而且又远在国外，我们需要一个叫Xshell的软件来远程部署。Xshell windows版下载地址：
 
@@ -148,183 +149,116 @@ xshell5:
 
 连接成功后，会出现如上图所示，之后就可以复制粘贴代码部署了。
 
-注意：以下是安装hysteria 1脚本，教程的末尾是安装hysteria 2脚本。图文教程是安装hysteria 1。hysteria 1和2不兼容，安装hysteria 1后请使用hysteria 1相关的客户端。
-
-***
-
-
-**hysteria 1一键部署管理脚本：**
+一键安装sing-box脚本，开箱即用 18 个节点（直连 9 + WARP 9），包括2个 Trojan Reality节点，含端口一键切换、BBR 加速、分享链接导出等。支持系统：Debian 11+ / Ubuntu 20.04+ / CentOS Stream 9+ / Rocky 9+ / AlmaLinux 9+ / Fedora 38+ / Arch(rolling) / openSUSE Leap 15.4+，已在[Vultr](https://www.vultr.com/?ref=7048874) 上测试通过。脚本地址：[Alvin9999/Sing-Box-Plus](https://github.com/Alvin9999/Sing-Box-Plus)
 
 ```bash
-bash <(curl -fsSL https://git.io/hysteria.sh)
+wget -O sing-box-plus.sh https://raw.githubusercontent.com/Alvin9999/Sing-Box-Plus/main/sing-box-plus.sh && chmod +x sing-box-plus.sh && bash sing-box-plus.sh
 ```
 
-***
-
-> 如果输入安装命令后提示curl: command not found，那是因为服务器系统没有自带curl命令，安装一下curl。
-
-> CentOS系统安装curl命令：yum install -y curl
-
-> Debian/Ubuntu系统安装curl命令：apt-get install -y curl
-
-> 安装完成后，输入hihy可进入管理页面。脚本来自[emptysuns/Hi_Hysteria](https://github.com/emptysuns/Hi_Hysteria)。
-
-***
-
-复制上面的**脚本代码**到VPS服务器里，复制代码用鼠标右键的复制，然后在vps里面右键粘贴进去，因为ctrl+c和ctrl+v无效。接着按回车键，脚本会自动安装，以后只需要运行这个快捷命令就可以出现下图的界面进行设置，快捷管理命令为：hihy
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/vultr/hy1.png)
-
-如上图出现管理界面后，**输入数字1来安装**。
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/vultr/hy2.png)
-
-没有域名就选择数字3
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/hy001.png)
-
-自签证书可以输入bing.com
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/hy002.png)
-
-选择数字1，正确
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/hy003.png)
-
-选择数字1，udp类型
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/hy004-2.png)
-
-端口可以回车随机
-
-关于是否启用端口跳跃/多端口模式，一般选择2，跳过。如果封锁严重的时候可以选择1，启用。如果启用端口跳跃/多端口模式，需要按照提示输入开始端口和结束端口。
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/hy005.png)
-
-延迟、上传速度、下载速度、密码都可以用默认的配置，也可以自己修改，默认就回车
-
-关于验证方式，一般选择1，auth_str(默认)
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/hy006.png)
-
-关于客户端名称，默认就回车
-
-接下来会等待几分钟，成功后会出现“安装完成，请查看下方配置详细信息”。如果失败会有相应的提示，一般解决方法就是卸载脚本后重新安装。
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/hy007.png)
-
-
-带大括号的就是整个配置信息，需要复制下来，用鼠标右键有复制。在电脑上新建一个**config.json**的文件，把配置信息粘帖进去。需要**注意**的是：**有两行必须删除**，不然会无法启动hysteria客户端。这两行信息是：
-
-"acl": "acl/routes.acl",
-
-"mmdb": "acl/Country.mmdb",
-
-**连带标点符号一起删除。**
-
-有了配置文件，接下来就是下载hysteria客户端。
-
-***
-
-【hysteria 1客户端下载及使用方法】
-
-hysteria 1官方客户端下载地址：https://github.com/apernet/hysteria/releases/tag/v1.3.5
-
-根据电脑系统进行下载，电脑windows 32位系统就下载[hysteria-windows-386.exe](https://github.com/HyNetwork/hysteria/releases/download/v1.3.5/hysteria-windows-386.exe) 64位系统可以用[hysteria-windows-386.exe](https://github.com/HyNetwork/hysteria/releases/download/v1.3.5/hysteria-windows-386.exe)  或者[hysteria-windows-amd64.exe](https://github.com/HyNetwork/hysteria/releases/download/v1.3.5/hysteria-windows-amd64.exe)
-
-hysteria客户端下载好后，将config.json配置文件放在同一级目录就能启动了。
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/vultr/hy8.png)
-
-启动hysteria，浏览器代理设置成和配置文件一样就行，配置文件包含http和socks5代理，http代理默认的是127.0.0.1和10809，socks5代理默认的是127.0.0.1和10808，端口号可以修改，浏览器二选一，端口号和配置文件一致。
-
-如果按照默认来设置浏览器，可以设置成http127.0.0.1和10809 或者socks5 127.0.0.1和10808
-
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/vultr/hy10.png)
-
-启动客户端后，出现connected和running字样表示启动成功。如果没有启动成功，请检查配置信息是否设置正确以及与服务器一致。
-
-谷歌浏览器chrome可配合switchyomega插件来使用，下载插件：[switchyomega](https://github.com/atrandys/trojan/releases/download/1.0.0/SwitchyOmega_Chromium.crx)
-
-安装插件，打开chrome，打开扩展程序，将下载的插件拖动到扩展程序页面，添加到扩展。
-![20181116000534](https://user-images.githubusercontent.com/12132898/70548725-0461d000-1bae-11ea-9d1e-4577e36ac46e.png)
-
-完成添加，会跳转到switchyomega页面，点跳过教程，然后点击proxy，如图填写，最后点击应用选项。
-![20181116001438](https://user-images.githubusercontent.com/12132898/70548727-04fa6680-1bae-11ea-99da-568af4fd6f5f.png)
-
-（注意：如果按照默认配置来设置，图片中的1080端口需要改为10808）
-
-***
-
-**常见问题及解决方法**：
-
-**1、搭建的账号之前能用，突然不能用了，怎么解决？**
-
-A：如果ip不能ping通，xshell不能直接连接vps服务器，说明ip被墙了，需要换ip。vultr开通和删除服务器非常方便，新服务器即新ip，为了保证开通的新服务器ip和旧ip不一样，先开新服务器出现ip后再删旧服务器。其它大多数vps服务商换ip都要额为收费。
-
-B: 如果ip正常，那么多半是端口号被封了，此时需要换端口号，可以重新搭建。
-
-2、需要安装bbr加速吗？
-
-bbr加速是tcp加速，而hysteria是Quic(udp)协议。所以不用再部署bbr加速，当然自己想部署也可以，部署bbr加速可参考其它教程。
-
-3、如何安装hysteria 2？
-
-Hysteria 2 继承了 Hysteria 1.x 的几乎所有功能，同时引入了各种新的修复和增强。但值得注意的是，由于协议和代码经过了重大更改，Hysteria 2 与 Hysteria 1.x 完全不兼容。 用户必须在客户端和服务器上使用一致的版本。安装Hysteria 2后客户端请使用2.0及以上版本。
-
-***
-
-**hysteria 2一键部署管理脚本：**
+或者
 
 ```bash
-wget -N --no-check-certificate https://raw.githubusercontent.com/flame1ce/hysteria2-install/main/hysteria2-install-main/hy2/hysteria.sh && bash hysteria.sh
+curl -fsSL -o sing-box-plus.sh https://raw.githubusercontent.com/Alvin9999/Sing-Box-Plus/main/sing-box-plus.sh  && chmod +x sing-box-plus.sh && bash sing-box-plus.sh
 ```
+
+> 安装完成后，输入 bash sing-box-plus.sh 可进入管理页面。
+
+> 如果安装过其它 sing-box 脚本，请先卸载。
 
 ***
 
-> 如果输入安装命令后提示wget: command not found，那是因为服务器系统没有自带wget命令，安装一下wget。
+**脚本演示**
 
-> CentOS系统安装curl命令：yum install -y wget
+复制上面安装命令代码到VPS服务器里，复制代码用鼠标右键的复制，然后在vps里面右键粘贴进去，因为ctrl+c和ctrl+v无效。
 
-> Debian/Ubuntu系统安装curl命令：apt-get install -y wget
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-sing-box-1.png)
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/hy2-001.jpg)
+复制脚本后，按回车键。
 
-输入安装脚本后，选择数字1安装程序。
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-sing-box-2.png)
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/hy2-002.jpg)
+出现管理界面后，输入数字 1 来安装脚本，按回车键。脚本全自动安装。
 
-协议证书申请方式选择1。
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-sing-box-3.png)
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/hy2-003.jpg)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-sing-box-4.png)
 
-端口可以自己填写想要的，也可以回车随机。
+## ✨ 默认部署内容（18 个节点）
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/hy2-004.jpg)
+**直连 9：**
 
-端口模式一般选择1，单端口模式。如果封锁严重的时候可以选择2，启用端口跳跃/多端口模式。如果启用端口跳跃，需要按照提示输入开始端口和结束端口。
+* VLESS Reality（Vision 流）
+* VLESS gRPC Reality
+* Trojan Reality
+* VMess WS
+* Hysteria2（直连证书）
+* Hysteria2 + OBFS(salamander)
+* Shadowsocks 2022（2022-blake3-aes-256-gcm）
+* Shadowsocks（aes-256-gcm）
+* TUIC v5（ALPN h3，自签证书）
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/hy2-005.jpg)
+​**WARP 9：**（同上 9 种，出站经 Cloudflare WARP）
 
-端口可以自己填写想要的，也可以回车随机。
+> WARP 出站更利于流媒体解锁与回程质量。
 
-伪装网站地址回车。
+用鼠标复制所有节点链接一键导入到软件中。以v2ray为例，导入后界面：
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/hy2-006.jpg)
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-sing-box-5.png)
 
-最后出现这一步就成功了。
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-sing-box-6.png)
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/hy2-007.jpg)
+脚本还有其它功能：查看分享链接、一键更换所有端口 、一键开启 BBR。可以输入数字 5 来启动 BBR 加速，这样就不用单独部署 BBR 加速脚本。
 
-这一部分就是客户端配置信息，可以复制下来。新建名字为config.json文件，将客户端配置信息复制进去并保存。
+***
 
-hysteria 2的v2.2.3版本下载：https://github.com/apernet/hysteria/releases/download/app%2Fv2.2.3/hysteria-windows-386.exe
+**第三步：一键加速VPS服务器**
 
-hysteria 2更新地址：https://github.com/apernet/hysteria/releases
+五合一的TCP网络加速脚本，包括了BBR原版（首选）、BBR Plus、BBR魔改版、暴力BBR魔改版、LotServer(锐速)安装脚本。可用于KVMXen架构，不兼容OpenVZ（OVZ）。支持Centos 6+ / Debian 7+ / Ubuntu 14+，BBR魔改版不支持Debian 8。
 
-将下载后的hysteria-windows-386.exe文件和config.json文件放在同一目录，双击运行ysteria-windows-386.exe就可以启动了。需要注意的是，脚本搭建后默认的代理端口是5678，那么浏览器代理端口也要填写socks5 127.0.0.1 5678 , 当然你也可以在客户端配置信息文件修改5678端口。
+👉 强烈推荐使用 BBR 原版加速：最稳定——谷歌官方维护，速度不错；最省心——Debian 9+ / Ubuntu 18.04+  系统无需更换内核；最安全——避免因魔改内核导致 VPS 无法启动。
 
-![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/hy2-008.jpg)
+⚠️ 其他版本（BBR Plus / 魔改 / 暴力魔改 / 锐速）需要更换或指定内核，风险较高，不推荐新手使用。
+
+***
+
+```bash
+wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh"
+chmod +x tcp.sh
+./tcp.sh
+```
+***
+
+> 如果提示 wget: command not found 的错误，这是你的系统精简的太干净了，wget都没有安装，所以需要安装wget。CentOS系统安装wget命令: yum install -y wget Debian/Ubuntu系统安装wget命令:apt-get install -y wget
+
+安装完成后，脚本管理命令为：./tcp.sh
+
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-bbr-1.png)
+
+如果服务器系统是 **Debian** 或 **Ubuntu**，可不用安装内核，直接输入 **数字 4** 启动 **BBR 原版加速**。  
+
+如果服务器系统是 **CentOS**，先输入 **数字 1** 安装内核，然后 **重启服务器** 后，输入 **数字 4** 启动 **BBR 原版加速**。  
+
+**BBR 原版**由谷歌官方开发，稳定且速度表现优秀，推荐使用。  
+
+⚠️ **注意**：对于其他第三方内核，可能存在与系统不兼容的情况，安装后有概率导致 **VPS 无法正常启动**，需谨慎，因此 **不推荐**。 如果VPS 无法正常启动需要重装系统或者开新服务器。
+
+以安装**BBR 原版加速**为例，输入加速脚本，选择数字4
+
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-bbr-1.png)
+
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-bbr-2.png)
+
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/softimag/2025-bbr-3.png)
+
+输入./tcp.sh查看最终是否启动成功。
+
+如果想换一个加速，输入数字9进行卸载加速，然后进行操作。
+
+**注意：如果在安装内核环节出现这样一张图，注意选择NO**
+
+![](https://cdn.jsdelivr.net/gh/Alvin9999/pac2/vultr/newbbr6.jpg)
+
+***
 
 ***
 
